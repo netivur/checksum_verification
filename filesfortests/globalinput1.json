@@ -1,10 +1,8 @@
 {
   "Files": [
     {
-
-      "filename": "D:\\Gitrep\\test_task\\filesfortests\\file1s.txt",
-      "sum": "cbf43926"
-
+	"filename": "D:\\Projects\\readwritejson\\readwritejson\\file1s.txt",
+	"sum": "cbf43926"
     }
   ]
 }
