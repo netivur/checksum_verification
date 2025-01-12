@@ -76,6 +76,7 @@ namespace sver {
         if ((argc < 2) || (argc > 3)) {
             std::cout << "Usage: " << argv[0] << " database_file checksum_algorithm(CRC32 by default)" << std::endl;
             result = false;
+	    return result;
         }
         if (result && (argc == 3)) {
             std::string name_algo = argv[2];
@@ -88,6 +89,7 @@ namespace sver {
                 }
                 std::cout << std::endl;
                 result = false;
+	        return result;
             }
         }
 

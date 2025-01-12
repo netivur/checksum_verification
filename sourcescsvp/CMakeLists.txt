@@ -19,3 +19,19 @@ target_include_directories(csvp PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/include)
 
 target_include_directories(csvp PUBLIC "${PROJECT_BINARY_DIR}")#"${PROJECT_SOURSE_DIR}/servicefiles")
 install(TARGETS csvp DESTINATION bin)
+
+enable_testing()
+add_test(NAME Usage1 COMMAND csvp)
+set_tests_properties(Usage1 PROPERTIES PASS_REGULAR_EXPRESSION "Usage: .* .* .* .* .*") #number of arguments does not match
+
+
+add_test(NAME Empfile COMMAND csvp D:\\Gitrep\\test_task\\filesfortests\\globalinput0.json )
+set_tests_properties(Empfile PROPERTIES PASS_REGULAR_EXPRESSION "File is empty.")#empty file in input
+
+add_test(NAME Correctfile COMMAND csvp D:\\Gitrep\\test_task\\filesfortests\\globalinput1.json )
+set_tests_properties(Empfile PROPERTIES PASS_REGULAR_EXPRESSION ".* .* .*")#descrepancy undetected
+
+add_test(NAME CorrectEmpFile COMMAND csvp D:\\Gitrep\\test_task\\filesfortests\\globalinput2.json )
+set_tests_properties(Empfile PROPERTIES PASS_REGULAR_EXPRESSION ".* .* .*")#descrepency undetected
+
+

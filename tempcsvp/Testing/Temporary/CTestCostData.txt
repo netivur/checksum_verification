@@ -1,0 +1,6 @@
+Usage1 12 0.000626158
+Comp 1 0.0075229
+Empfile 8 0.000833125
+Correctfile 8 0.000866988
+CorrectEmpFile 8 0.00087985
+---
