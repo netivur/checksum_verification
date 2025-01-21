@@ -9,3 +9,7 @@
 	
 	Исходные файлы программы хранятся в папке soursescsvp.
 	В папке tempscsvp хранятся временные файлы сборки проекта и debug версия программы csvp.exe (подпапка Debug).
+	Сборка проекта и запуск тестов:
+	1) Выбор генератора и системы сборки: cmake -G "Visual Studio 17 2022" path_to_resourse_directory/sourcescsvp/
+	2) Сборка проекта: cmake --build path_to_build_directory --target csvp
+	3) Запуск тестов: ctest -C Debug -VV

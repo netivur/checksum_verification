@@ -1,11 +1,5 @@
 cmake_minimum_required(VERSION 3.15)
 
-#cmake -G "Visual Studio 17 2022" ../sourcescsvp/
-#cmake --build . --target csvp
-#ctest -C Debug -VV
-
-
-
 project(csvp VERSION 0.1.1.1)
 add_library(csvp_compiler_flags INTERFACE)
 set(CMAKE_CXX_STANDARD 20)
