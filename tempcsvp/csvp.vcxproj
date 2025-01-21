@@ -328,6 +328,8 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="D:\Gitrep\test_task\sourcescsvp\crc_functions.cpp" />
+    <ClCompile Include="D:\Gitrep\test_task\sourcescsvp\json_structure_handler.cpp" />
     <ClCompile Include="D:\Gitrep\test_task\sourcescsvp\maincsvp.cpp" />
   </ItemGroup>
   <ItemGroup>

@@ -12,7 +12,7 @@ target_compile_options(csvp_compiler_flags INTERFACE
     "$<${gcc_like_cxx}:$<BUILD_INTERFACE:-Wall;-Wextra;-Wshadow;-Wformat=2;-Wunused>>"
     "$<${msvc_cxx}:$<BUILD_INTERFACE:-W3>>")
 
-add_executable(csvp maincsvp.cpp)
+add_executable(csvp crc_functions.cpp json_structure_handler.cpp maincsvp.cpp)
 
 target_include_directories(csvp PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/include)
 
@@ -27,21 +27,21 @@ add_test(NAME Usage1 COMMAND csvp)
 set_tests_properties(Usage1 PROPERTIES PASS_REGULAR_EXPRESSION "Usage: .* .* .*") #number of arguments does not match
 
 #Пустой файл
-add_test(NAME Empfile COMMAND csvp D:\\Gitrep\\test_task\\filesfortests\\globalinput0.json )
+add_test(NAME Empfile COMMAND csvp ..\\filesfortests\\globalinput0.json )
 set_tests_properties(Empfile PROPERTIES PASS_REGULAR_EXPRESSION "File is empty.")#empty file in input
 
 #Файл, содержащий корректный путь и контрольную сумму
-add_test(NAME Correctfile COMMAND csvp D:\\Gitrep\\test_task\\filesfortests\\globalinput1.json )
+add_test(NAME Correctfile COMMAND csvp ..\\filesfortests\\globalinput1.json )
 set_tests_properties(Correctfile PROPERTIES PASS_REGULAR_EXPRESSION ".* No changes in file.*")#descrepancy undetected
 
 #Файл, содержащий путь к пустому файлу
-add_test(NAME CorrectEmpFile COMMAND csvp D:\\Gitrep\\test_task\\filesfortests\\globalinput2.json )
+add_test(NAME CorrectEmpFile COMMAND csvp ..\\filesfortests\\globalinput2.json )
 set_tests_properties(CorrectEmpFile PROPERTIES PASS_REGULAR_EXPRESSION ".* No changes in file.*")#descrepency undetected
 
 #Файл, содержащий путь к файлу, которого не существует
-add_test(NAME NotExistFile COMMAND csvp D:\\Gitrep\\test_task\\filesfortests\\globalinput3.json )
+add_test(NAME NotExistFile COMMAND csvp ..\\filesfortests\\globalinput3.json )
 set_tests_properties(NotExistFile PROPERTIES PASS_REGULAR_EXPRESSION "File .* does not exist.")#descrepency undetected
 
 #Файл, содержащий файл с неправильной контрольной суммой
-add_test(NAME FileErrorInSum COMMAND csvp D:\\Gitrep\\test_task\\filesfortests\\globalinput4.json )
+add_test(NAME FileErrorInSum COMMAND csvp ..\\filesfortests\\globalinput4.json )
 set_tests_properties(FileErrorInSum PROPERTIES PASS_REGULAR_EXPRESSION ".* There are changes in file")#descrepency undetected

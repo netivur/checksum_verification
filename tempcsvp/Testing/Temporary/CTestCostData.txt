@@ -1,8 +1,8 @@
-Usage1 19 0.00462582
+Usage1 23 0.00387474
 Comp 1 0.0075229
-Empfile 23 0.00032163
-Correctfile 23 0.000563765
-CorrectEmpFile 23 0.000569648
-NotExistFile 14 0.000894236
-FileErrorInSum 8 0.00159143
+Empfile 27 0.000243015
+Correctfile 27 0.000265826
+CorrectEmpFile 27 0.0002581
+NotExistFile 18 0.000388889
+FileErrorInSum 12 0.000594558
 ---

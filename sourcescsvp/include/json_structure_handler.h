@@ -7,7 +7,7 @@ namespace jsh {
     public:    
         Json_struct_handler();    
         Json_struct_handler(const std::string& function_name);
-        void set_new_algo(const std::string& function_name);
+        void set_new_algorithm(const std::string& function_name);
         bool use_method(const std::string& address, const std::string& checksum);
 
         Json_struct_handler(const Json_struct_handler& ah) = delete;
@@ -15,7 +15,7 @@ namespace jsh {
         
     private:
 	    bool (*ptr_to_funct)(const std::string&, const std::string&) = nullptr;
-	    std::string algo_name = "";
+	    std::string algorithm_name = "";
     };
 
     struct Sum_n_path {

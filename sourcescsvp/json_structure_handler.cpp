@@ -5,16 +5,16 @@
 
 namespace jsh {
 	Json_struct_handler::Json_struct_handler() {
-        algo_name = "crc32";
-        ptr_to_funct = crc_f::algorithms_map[algo_name];
+        algorithm_name = "crc32";
+        ptr_to_funct = crc_f::algorithms_map[algorithm_name];
     }
     Json_struct_handler::Json_struct_handler(const std::string& function_name) {
-        algo_name = function_name;
-        ptr_to_funct = crc_f::algorithms_map[algo_name];
+        algorithm_name = function_name;
+        ptr_to_funct = crc_f::algorithms_map[algorithm_name];
     }
-    void Json_struct_handler::set_new_algo(const std::string& function_name) {
-        algo_name = function_name;
-        ptr_to_funct = crc_f::algorithms_map[algo_name];
+    void Json_struct_handler::set_new_algorithm(const std::string& function_name) {
+        algorithm_name = function_name;
+        ptr_to_funct = crc_f::algorithms_map[algorithm_name];
     }
     bool Json_struct_handler::use_method(const std::string& address, const std::string& checksum) {
         bool res = ptr_to_funct(address, checksum);
@@ -43,10 +43,10 @@ namespace jsh {
 
     void set_algorithm(Json_struct_handler& ah, const int argc, char** argv) {
         if (argc == 3) {
-            std::string name_algo = argv[2];
-            std::transform(name_algo.begin(), name_algo.end(), name_algo.begin(),
+            std::string algorithm_name = argv[2];
+            std::transform(algorithm_name.begin(), algorithm_name.end(), algorithm_name.begin(),
                 [](unsigned char c) { return std::tolower(c); });
-            ah.set_new_algo(name_algo);
+            ah.set_new_algorithm(algorithm_name);
         }
     }
 
@@ -58,11 +58,11 @@ namespace jsh {
             return result;
         }
         if (result && (argc == 3)) {
-            std::string name_algo = argv[2];
-            std::transform(name_algo.begin(), name_algo.end(), name_algo.begin(),
+            std::string algorithm_name = argv[2];
+            std::transform(algorithm_name.begin(), algorithm_name.end(), algorithm_name.begin(),
                 [](unsigned char c) { return std::tolower(c); });
-            if (!crc_f::algorithms_map.contains(name_algo)) {
-                std::cout << name_algo << " not Supported.\n" << "Supported algorythms: \n";
+            if (!crc_f::algorithms_map.contains(algorithm_name)) {
+                std::cout << algorithm_name << " not Supported.\n" << "Supported algorythms: \n";
                 for (const auto& p : crc_f::algorithms_map) {
                     std::cout << p.first << " ";
                 }
